@@ -20,7 +20,7 @@ For both Python and Matlab, there are several ways to interact with this tutoria
 
 ### Python
 
-1. The easiest way to interact with this tutorial is to use Binder. Click the button below to launch an interactive version of the Python tutorial in your web browser: https://mybinder.org/v2/gh/ilinabg/bioe245-tutorial/fca03e0bae5ba7db33e3951ce21bf58285fc820a?urlpath=lab%2Ftree%2Fpython%2FPythonTutorial.ipynb. However, please note that to save your work, you will need to download the Jupyter notebook to your local machine.
+1. The easiest way to interact with this tutorial is to use Binder. Launch an interactive version of the Python tutorial in your web browser :arrow_right: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ilinabg/bioe245-tutorial/fca03e0bae5ba7db33e3951ce21bf58285fc820a?urlpath=lab%2Ftree%2Fpython%2FPythonTutorial.ipynb). Note: to save your work, you will need to download the Jupyter notebook to your local machine.
 
 2. Alternatively, you can clone this repository to your local machine and run the Jupyter notebooks using Jupyter Lab or Jupyter Notebook. Please see this tutorial on how to [install Jupyter](https://jupyter.org/install). You will additionally need to install the following Python packages into your environment:
     - numpy
