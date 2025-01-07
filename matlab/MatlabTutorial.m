@@ -1,72 +1,61 @@
-%% Matlab Tutorial: Saving, Loading, and Manipulating Matrices
+%% Matlab Tutorial: Visualizing and Analyzing Neural Time Series Data
+% Please see the Python tutorial for a detailed explanation of the example data and the analysis steps.
 
-% This tutorial will guide you through the basics of saving, loading, and manipulating matrices in Matlab.
+% Let's see the brain plot, by visualizing the picture '../media/brain_plot.png'
+imshow('../media/P1_recon_with_elecs.png');
+brighten(0.5);
 
-%% Creating Matrices
-% Let's start by creating some matrices.
+%% Loading in the data
+% Let's start by loading in the data. 
 
-A = [1, 2, 3; 4, 5, 6; 7, 8, 9];
-B = [9, 8, 7; 6, 5, 4; 3, 2, 1];
+data = loadData(1, 1);
 
-disp('Matrix A:');
-disp(A);
+% What does the data structure have in it?
+disp(data)
 
-disp('Matrix B:');
-disp(B);
+% You can also explore data by double clicking on it in the Variable
+% WorkSpace (with the Matlab GUI)
 
-%% Saving Matrices
-% To save matrices to a file, use the `save` function. This will create a .mat file.
+%% Visualizing the data
+% We can visualize the data using the `plot` function.
 
-save('matrices.mat', 'A', 'B');
+x = (1:size(data.ecog, 2))/data.ecog_sr-0.5;
+y = squeeze(mean(data.ecog, 1));
+colors = [0.96 0.44 0.54; 0.74 0.60 0.19];
 
-%% Loading Matrices
-% To load matrices from a file, use the `load` function.
-
-clear; % Clear the workspace to demonstrate loading
-load('matrices.mat');
-
-disp('Loaded Matrix A:');
-disp(A);
-
-disp('Loaded Matrix B:');
-disp(B);
-
-%% Manipulating Matrices
-% Now let's perform some basic matrix manipulations.
-
-% Matrix Addition
-C = A + B;
-disp('Matrix Addition (A + B):');
-disp(C);
-
-% Matrix Subtraction
-D = A - B;
-disp('Matrix Subtraction (A - B):');
-disp(D);
-
-% Matrix Multiplication
-E = A * B;
-disp('Matrix Multiplication (A * B):');
-disp(E);
-
-% Element-wise Multiplication
-F = A .* B;
-disp('Element-wise Multiplication (A .* B):');
-disp(F);
-
-% Transpose of a Matrix
-G = A';
-disp('Transpose of Matrix A:');
-disp(G);
-
-% Inverse of a Matrix (if it is invertible)
-if det(A) ~= 0
-    H = inv(A);
-    disp('Inverse of Matrix A:');
-    disp(H);
-else
-    disp('Matrix A is not invertible.');
+figure;
+for el = 1:2
+    plot(x, y(:, el), 'LineWidth', 2, 'Color', colors(el, :)); 
+    hold on;
 end
 
-%% Conclusion
-% This tutorial covered the basics of creating, saving, loading, and manipulating matrices in Matlab.
+% Format the plot
+xlabel('Time (s)');
+ylabel('Average electrical activity');
+box off;
+set(gca, 'FontSize', 15);
+
+
+%% Run PCA on the data
+
+% First, we need to reshape the data
+X = cat(1, data.ecog(:, :, 1), data.ecog(:, :, 2));
+
+% What shape is X?
+disp(size(X))
+
+% Run PCA
+[coeff, score, latent, ~, explained] = pca(X);
+
+% Plot the trials in the first two principal components
+figure;
+for el = 1:2
+    scatter(score((el-1)*size(data.ecog, 1)+1:el*size(data.ecog, 1), 1), ...
+        score((el-1)*size(data.ecog, 1)+1:el*size(data.ecog, 1), 2), ...
+        50, colors(el, :), 'filled'); hold on;
+end
+hold off;
+
+xlabel('PC1');
+ylabel('PC2');
+
