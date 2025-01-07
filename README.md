@@ -4,7 +4,8 @@ This is a tutorial for the BioE245: Machine Learning for Medical Imaging class a
 
 ## What this tutorial covers
 
-This tutorial is meant to introduce students to the basic functions, syntax, and capabilities of Python and Matlab for the purposes of this class. It is not meant to be a comprehensive guide to either language, but rather a starting point for students who are new to programming. There are two folders in this repository: `python` and `matlab`. Each folder contains a notebook with examples and exercises for that language. 
+This tutorial is meant to introduce students to the basic functions, syntax, and capabilities of Python and Matlab for the purposes of this class. It is not meant to be a comprehensive guide to either language, but rather a starting point for students who are new to programming. There are two folders in this repository: `python` and `matlab`. Each folder contains a notebook that covers the basics of the language by working with a real human ECoG dataset documented in this [tutorial](https://github.com/ChangLabUcsf/changlabXenvision) written by members of the [Chang lab](https://changlab.ucsf.edu/) at UCSF.
+ 
 
 The `python` folder contains:
 - `PythonTutorial.ipynb`: A Jupyter notebook with examples and exercises for Python. This notebook can be run using a Python kernel for Jupyter notebooks or using Binder (see below).
@@ -21,18 +22,20 @@ For both Python and Matlab, there are several ways to interact with this tutoria
 
 ### Python
 
-1. The easiest way to interact with this tutorial is to use Binder. Launch an interactive version of the Python tutorial in your web browser by clicking the icon: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ilinabg/bioe245-tutorial/fca03e0bae5ba7db33e3951ce21bf58285fc820a?urlpath=lab%2Ftree%2Fpython%2FPythonTutorial.ipynb). Please note that to save your work, you will need to download the Jupyter notebook to your local machine.
+1. The easiest way to interact with this tutorial is to use Binder. Launch an interactive version of the Python tutorial in your web browser by clicking the icon: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ilinabg/bioe245-tutorial/23643a4b12c4bafe1d337c28ac2480097f116d7b?urlpath=lab%2Ftree%2Fpython%2FPythonTutorial.ipynb). Please note that to save your work, you will need to download the Jupyter notebook to your local machine.
 
 2. Alternatively, you can clone this repository to your local machine and run the Jupyter notebooks using Jupyter Lab or Jupyter Notebook. Please see this tutorial on how to [install Jupyter](https://jupyter.org/install). You will additionally need to install the following Python packages into your environment:
     - numpy
     - matplotlib
     - scikit-learn
+    - seaborn
+    - scipy
 
 ### Matlab
 
 To run the Matlab examples and exercises, please note that you will need an active Matlab license.
 
-1. To run Matlab on your local machine, you can clone this repository and open the `matlab` folder in the Matlab GUI. You can run the `MatlabTutorial.m` file in the Matlab GUI, or you can run the `MatlabTutorialLiveScript.m` file in a version of > Matlab 2020 using the Live Editor.
+1. To run Matlab on your local machine, you can clone this repository and open the `matlab` folder in the Matlab GUI. You can run the `MatlabTutorial.m` file in the Matlab GUI, or you can run the `MatlabTutorialLiveScript.m` file in Matlab 2024 using the Live Editor.
 
 2. If you do not have Matlab installed on your local machine, you can use the [online Matlab environment](https://matlab.mathworks.com/). Once you sign into your Matlab account, you can upload the `MatlabTutorial.m` file or the `MatlabTutorialLiveScript.m` file to the online environment and run it there.
 
